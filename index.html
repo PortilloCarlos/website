@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <style type= "text/css">
+            body {
+            color: rgb(14, 23, 39);
+            background-color: rgb(189, 184, 159);
+            }
+
+            #seccion1 {
+                font-size: 40px;
+                text-align: center;
+                background-image: url(https://cdn.pixabay.com/photo/2015/12/03/08/50/paper-1074131_960_720.jpg);
+                background-size: contain;
+            }
+            #proyectos {
+                display: grid;
+                grid-template-columns: auto auto;
+            }
+            .proyecto img {
+                height: 400px;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="seccion1">
+            <h1>Bienvenido a (TITULO INMOBILIARIA)</h1>
+        </section>
+        <section id="proyectos">
+            <div class="proyecto">
+                <img src= 'https://cdn.pixabay.com/photo/2015/10/20/18/57/furniture-998265__340.jpg'>
+                <p>¡El hogar de tus sueños!</p>
+            </div>
+            <div class="proyecto">
+                <img src= 'https://cdn.pixabay.com/photo/2016/11/18/17/46/house-1836070__340.jpg'>
+                <p>¡Esta es tu oportunidad, no la dejes pasar!</p>
+            </div>
+        </section> 
+    </body>
+    <script>
+        const datos = [{
+            img:'https://cdn.pixabay.com/photo/2015/10/20/18/57/furniture-998265__340.jpg',
+            desc: 'hogar interno'
+        }]
+        [{
+            img: 'https://cdn.pixabay.com/photo/2016/11/18/17/46/house-1836070__340.jpg',
+            desc: 'hogar externo'
+        }]
+        console.log('Hello World')
+        let proyectos = document.querySelector('#proyectos');
+        proyectos.style.background = 'brown';
+
+        function dinamico (src,desc) {
+            let div = document.createElement("div");
+            let img = document.createElement("img");
+            img.src = src;
+            let p = document.createElement("p");
+            p.innerHTML = desc;
+            div.appendChild(img);
+            div.appendChild(p);
+            proyectos.appendChild(div);
+        }
+
+            datos.forEach(({img, desc}) => dinamico(img,desc));
+            
+    </script>
+</html>
